@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Quantum — Brand Identity (Live Preview)</title>
+    <meta
+      name="description"
+      content="Quantum — Futuristic branding & visual identity for high-end brands. Live single-file preview."
+    />
+    <meta property="og:title" content="Quantum — Brand Identity" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23E50914'/></svg>"
+    />
+    <style>
+      :root {
+        --red: #e50914;
+        --red-2: #ff4b2b;
+        --bg: #0b0b0b;
+        --metal: #c0c0c0;
+        --white: #ffffff;
+        --dark: #111111;
+        --container: 1100px;
+        --radius: 14px;
+        --glass: rgba(255, 255, 255, 0.03);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: linear-gradient(180deg, #060606 0%, #0b0b0b 100%);
+        color: var(--white);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header.site-header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: linear-gradient(
+          180deg,
+          rgba(11, 11, 11, 0.7),
+          rgba(11, 11, 11, 0.35)
+        );
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+      }
+      .site-header .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo svg {
+        height: 34px;
+      }
+      nav ul {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .btn-cta {
+        background: var(--red);
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+      .nav-link {
+        opacity: 0.9;
+      }
+
+      /* Page routing sections */
+      main.page {
+        min-height: calc(100vh - 76px);
+      }
+      section.page-section {
+        display: none;
+        padding: 40px 0;
+      }
+      section.page-section.active {
+        display: block;
+      }
+
+      /* Hero */
+      .hero {
+        position: relative;
+        height: 620px;
+        overflow: hidden;
+      }
+      #heroCanvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 5;
+        padding-top: 64px;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+      .hero-copy {
+        max-width: 640px;
+      }
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 999px;
+        margin-bottom: 18px;
+        font-size: 13px;
+      }
+      h1.hero-title {
+        font-size: 48px;
+        line-height: 1.02;
+        margin: 6px 0 12px;
+      }
+      p.lead {
+        opacity: 0.9;
+        font-size: 18px;
+      }
+      .hero-cta {
+        margin-top: 22px;
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 12px 18px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, var(--red), var(--red-2));
+        color: #fff;
+        font-weight: 700;
+      }
+      .btn.btn-ghost {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      /* Utility grid for sections */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 18px;
+      }
+      .col-6 {
+        grid-column: span 6;
+      }
+      .col-4 {
+        grid-column: span 4;
+      }
+      .col-12 {
+        grid-column: span 12;
+      }
+
+      /* Cards */
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .slider-track {
+        display: flex;
+        transition: transform 0.8s ease-in-out;
+      }
+
+      .project {
+        min-width: 100%;
+        height: 350px;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .project img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(229, 9, 20, 0.25),
+          rgba(255, 75, 43, 0.13)
+        );
+      }
+
+      .overlay.dark {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.25),
+          rgba(255, 75, 43, 0.13)
+        );
+      }
+
+      .overlay.red {
+        background: linear-gradient(
+          135deg,
+          rgba(229, 9, 20, 0.15),
+          rgba(0, 0, 0, 0.2)
+        );
+      }
+
+      .meta {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        margin-top: 24px;
+      }
+
+      .blog-card {
+        display: inline-block;
+        background: #111;
+        color: white;
+        border-radius: 12px;
+        margin: 0 0 20px;
+        overflow: hidden;
+        break-inside: avoid;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .blog-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .blog-content {
+        padding: 16px;
+      }
+
+      .blog-content h3 {
+        margin: 0 0 8px;
+      }
+
+      .blog-content p {
+        font-size: 0.95rem;
+        opacity: 0.85;
+      }
+
+      .read-more {
+        margin-top: 8px;
+        background: linear-gradient(
+          135deg,
+          rgba(229, 9, 20, 0.85),
+          rgba(255, 75, 43, 0.85)
+        );
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: background 0.3s;
+      }
+      .read-more:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 75, 43, 0.9),
+          rgba(229, 9, 20, 0.9)
+        );
+      }
+
+      /* Modal Styles */
+      .blog-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .blog-modal-content {
+        background: #1a1a1a;
+        padding: 24px;
+        border-radius: 12px;
+        color: white;
+        position: relative;
+
+        /* Keep width responsive */
+        width: 90%;
+        max-width: 1000px;
+
+        /* Keep height responsive with scrolling for overflow */
+        max-height: 80vh; /* 80% of viewport height */
+        overflow-y: auto; /* scroll vertically when needed */
+
+        /* Smooth scrolling experience */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+      }
+
+      /* Custom scrollbar for WebKit browsers */
+      .blog-modal-content::-webkit-scrollbar {
+        width: 8px;
+      }
+      .blog-modal-content::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 4px;
+      }
+      .blog-modal-content::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      #portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+
+      /* Footer */
+      footer.site-footer {
+        padding: 36px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        h1.hero-title {
+          font-size: 34px;
+        }
+        .projects {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .col-6 {
+          grid-column: span 12;
+        }
+      }
+      @media (max-width: 520px) {
+        .hero {
+          height: 520px;
+        }
+        .logo svg {
+          height: 28px;
+        }
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* Basic focus styles */
+      a:focus {
+        outline: 3px solid rgba(229, 9, 20, 0.35);
+        outline-offset: 2px;
+      }
+      #page-process {
+        position: relative;
+        padding: 120px 20px;
+        color: #fff;
+        overflow: hidden;
+        background: linear-gradient(180deg, #0a0a0a, #111 80%);
+      }
+
+      .process-bg {
+        position: absolute;
+        inset: 0;
+        background: url("https://www.transparenttextures.com/patterns/cubes.png");
+        opacity: 0.04;
+        animation: bgMove 20s linear infinite;
+      }
+
+      @keyframes bgMove {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 300px 300px;
+        }
+      }
+
+      .process-title {
+        font-size: clamp(3rem, 6vw, 4.5rem);
+        text-align: center;
+        font-weight: 900;
+        margin-bottom: 14px;
+        background: linear-gradient(90deg, #ff4b2b, #e50914);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .process-subtitle {
+        font-size: 1.3rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 780px;
+        margin: 0 auto 80px auto;
+      }
+
+      .process-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        max-width: 800px;
+        margin: auto;
+        position: relative;
+      }
+
+      .process-timeline::before {
+        content: "";
+        position: absolute;
+        left: 40px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, transparent, #ff4b2b, transparent);
+      }
+
+      .process-step {
+        position: relative;
+        padding-left: 80px;
+      }
+
+      .step-number {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(135deg, #e50914, #ff4b2b);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
+      }
+
+      .process-step h3 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+
+      .process-step p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      @media (max-width: 768px) {
+        .process-timeline::before {
+          left: 25px;
+        }
+        .process-step {
+          padding-left: 60px;
+        }
+      }
+      #page-about {
+        background: var(--bg);
+        color: var(--white);
+        padding: 80px 20px;
+      }
+
+      .about-hero {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, var(--red), var(--red-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .about-hero h1 {
+        font-size: 3.5rem;
+      }
+
+      .about-hero .lead {
+        color: var(--metal);
+        max-width: 700px;
+        margin: 10px auto 0;
+        font-size: 1.2rem;
+      }
+
+      .about-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 80px;
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: var(--metal);
+      }
+
+      .slider {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .slider::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+      }
+
+      .slider img {
+        border-radius: var(--radius);
+        width: 100%;
+        max-width: 400px;
+        object-fit: cover;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+      }
+
+      .about-values h2,
+      .about-team h2 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .value-grid {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .value-card {
+        background: var(--glass);
+        padding: 20px 30px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .value-card:hover {
+        box-shadow: 0 0 20px var(--red-2);
+      }
+
+      .team-grid {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .team-member {
+        text-align: center;
+      }
+
+      .team-member img {
+        border-radius: 50%;
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border: 2px solid var(--red);
+      }
+
+      .team-member h3 {
+        margin-top: 15px;
+      }
+
+      @media (max-width: 900px) {
+        .about-main {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-grid {
+          flex-direction: column;
+          gap: 40px;
+        }
+      }
+      #page-services {
+        background: var(--bg);
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      #page-services h1 {
+        font-size: 3rem;
+        color: var(--red-2);
+        margin-bottom: 10px;
+      }
+
+      #page-services .lead {
+        font-size: 1.2rem;
+        color: var(--metal);
+        max-width: 700px;
+        margin: 0 auto 50px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        margin-top: 20px;
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 30px;
+        border-radius: var(--radius);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card h3 {
+        color: var(--red-2);
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .service-card p {
+        color: var(--metal);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at center,
+          var(--red),
+          transparent 70%
+        );
+        transform: scale(0);
+        transition: transform 0.4s ease;
+        opacity: 0.2;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(255, 75, 43, 0.2);
+      }
+
+      .service-card:hover::before {
+        transform: scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <div class="container wrap">
+        <a href="#/" class="logo" data-link aria-label="Quantum home">
+          <!-- simple wordmark -->
+          <svg viewBox="0 0 400 80" aria-hidden="true">
+            <text
+              x="0"
+              y="60"
+              font-family="Inter, sans-serif"
+              font-size="56"
+              fill="#fff"
+            >
+              Quantum
+            </text>
+          </svg>
+        </a>
+        <nav role="navigation" aria-label="Main navigation">
+          <ul>
+            <li><a class="nav-link" href="index.html" data-link>Home</a></li>
+            <li>
+              <a class="nav-link" href="#/services" data-link>Services</a>
+            </li>
+            <li><a class="nav-link" href="#/about" data-link>About</a></li>
+            <li><a class="nav-link" href="#/process" data-link>Process</a></li>
+            <li><a class="nav-link" href="#/blog" data-link>Blog</a></li>
+            <li>
+              <a class="nav-link" href="#/portfolio" data-link>Portfolio</a>
+            </li>
+            <li>
+              <a class="btn-cta" href="#/contact" data-link>Start Project</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page" role="main">
+      <!-- Home / Index -->
+      <section
+        id="page-home"
+        class="page-section"
+        data-page="home"
+        aria-labelledby="home-title"
+      >
+        <div class="hero" role="region" aria-label="Hero">
+          <canvas id="heroCanvas" aria-hidden="true"></canvas>
+          <div class="container hero-inner">
+            <div class="hero-copy">
+              <span class="eyebrow">Futuristic Brand Studio</span>
+              <h1 id="home-title" class="hero-title">
+                Brand energy, forged in crimson.
+              </h1>
+              <p class="lead">
+                We craft bold visual identities, immersive brand systems and
+                motion-rich experiences for premium and forward-thinking
+                businesses.
+              </p>
+              <div class="hero-cta">
+                <a class="btn" href="#/portfolio" data-link>View Work</a>
+                <a class="btn btn-ghost" href="#/contact" data-link
+                  >Start a Project</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" style="margin-top: 28px">
+          <section
+            aria-labelledby="services-title"
+            class="card"
+            style="margin-bottom: 18px"
+          >
+            <h2 id="services-title">Core Capabilities</h2>
+            <div class="grid" style="margin-top: 14px">
+              <div class="col-4 card">
+                <h3>Brand Strategy</h3>
+                <p>
+                  Research-led positioning, architecture, naming and value
+                  mapping.
+                </p>
+              </div>
+              <div class="col-4 card">
+                <h3>Visual Identity</h3>
+                <p>Wordmarks, systems, brand books and usage guidelines.</p>
+              </div>
+              <div class="col-4 card">
+                <h3>Motion & Digital</h3>
+                <p>
+                  UI motion, launch films, Three.js experiences and product
+                  animations.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section
+            aria-labelledby="featured-title"
+            class="card"
+            style="margin-bottom: 18px"
+          >
+            <h2 id="featured-title">Featured Projects</h2>
+          <div class="container">
+          <h1 id="portfolio-title">Portfolio</h1>
+          
+          <div style="margin-top: 18px" class="card">
+            <div
+              style="
+                display: flex;
+                gap: 12px;
+                margin-bottom: 12px;
+                flex-wrap: wrap;
+              "
+            >
+              
+            </div>
+            <div class="projects" id="portfolio-grid">
+              <!-- clones of earlier projects with data-type -->
+              <article
+                class="project"
+                tabindex="0"
+                aria-label="Project: Lumen Fashion"
+              >
+                <img
+                  src="assets/lumin fashion.jpg"
+                  alt="Lumen Fashion project"
+                />
+                <div class="overlay dark"></div>
+                <div class="meta">
+                  <strong>Lumen Fashion</strong>
+                  <div>Identity & E-comm UI</div>
+                </div>
+              </article>
+              <article
+                class="project"
+                tabindex="0"
+                aria-label="Project: Axiom Motors"
+              >
+                <img src="assets/axiom-motors.jpg" alt="Axiom Motors project" />
+                <div class="overlay"></div>
+                <div class="meta">
+                  <strong>Axiom Motors</strong>
+                  <div>Brand & Launch</div>
+                </div>
+              </article>
+              <article
+                class="project"
+                tabindex="0"
+                aria-label="Project: Skyline Labs"
+              >
+                <img src="assets/big-city.jpg" alt="Skyline Labs project" />
+                <div class="overlay red"></div>
+                <div class="meta">
+                  <strong>Skyline Labs</strong>
+                  <div>Visual System</div>
+                </div>
+              </article>
+
+              <article
+                class="project"
+                tabindex="0"
+                aria-label="Project: Skyline Labs"
+              >
+                <img src="assets/skyline.jpg" alt="Skyline Labs project" />
+                <div class="overlay red"></div>
+                <div class="meta">
+                  <strong>Skyline Labs</strong>
+                  <div>Visual System</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+            
+          </section>
+
+          <section
+            aria-labelledby="process-snap"
+            class="card"
+            style="margin-bottom: 18px"
+          >
+            <h2 id="process-snap">Our Process (Snapshot)</h2>
+            <ol>
+              <li>Discover — research & positioning</li>
+              <li>Define — strategy & naming</li>
+              <li>Design — identity, systems & motion</li>
+              <li>Deliver — implementation & assets</li>
+            </ol>
+          </section>
+
+          <section
+            aria-labelledby="testimonials"
+            class="card"
+            style="margin-bottom: 18px"
+          >
+            <h2 id="testimonials">Client Testimonials</h2>
+            <p>
+              "Quantum transformed our brand into a market-defining identity." —
+              CEO, Axiom Motors
+            </p>
+          </section>
+
+          <section
+            aria-labelledby="insights"
+            class="card"
+            style="margin-bottom: 18px"
+          >
+            <h2 id="insights">Latest Insights</h2>
+            <p>
+              Short case study teasers and thought-leadership articles about
+              branding in a digital-first world.
+            </p>
+          </section>
+
+          <section
+            aria-labelledby="cta"
+            class="card"
+            style="margin-bottom: 18px"
+          >
+            <h2 id="cta">Ready to start?</h2>
+            <p>
+              We work with a limited number of partners each quarter. Start a
+              conversation.
+            </p>
+            <a class="btn" href="#/contact" data-link>Get in touch</a>
+          </section>
+        </div>
+      </section>
+
+      <!-- Portfolio page -->
+      <section
+        id="page-portfolio"
+        class="page-section"
+        data-page="portfolio"
+        aria-labelledby="portfolio-title"
+      >
+        <div class="container">
+          <h1 id="portfolio-title">Portfolio</h1>
+          <p class="lead">
+            Filterable projects showcasing identity systems, campaigns and
+            digital experiences.
+          </p>
+          <div style="margin-top: 18px" class="card">
+            <div
+              style="
+                display: flex;
+                gap: 12px;
+                margin-bottom: 12px;
+                flex-wrap: wrap;
+              "
+            >
+              <button class="filter" data-filter="all">All</button>
+              <button class="filter" data-filter="identity">Identity</button>
+              <button class="filter" data-filter="motion">Motion</button>
+              <button class="filter" data-filter="digital">Digital</button>
+            </div>
+            <div class="projects" id="portfolio-grid">
+              <!-- clones of earlier projects with data-type -->
+              <article
+                class="project"
+                tabindex="0"
+                aria-label="Project: Lumen Fashion"
+              >
+                <img
+                  src="assets/lumin fashion.jpg"
+                  alt="Lumen Fashion project"
+                />
+                <div class="overlay dark"></div>
+                <div class="meta">
+                  <strong>Lumen Fashion</strong>
+                  <div>Identity & E-comm UI</div>
+                </div>
+              </article>
+              <article
+                class="project"
+                tabindex="0"
+                aria-label="Project: Axiom Motors"
+              >
+                <img src="assets/axiom-motors.jpg" alt="Axiom Motors project" />
+                <div class="overlay"></div>
+                <div class="meta">
+                  <strong>Axiom Motors</strong>
+                  <div>Brand & Launch</div>
+                </div>
+              </article>
+              <article
+                class="project"
+                tabindex="0"
+                aria-label="Project: Skyline Labs"
+              >
+                <img src="assets/big-city.jpg" alt="Skyline Labs project" />
+                <div class="overlay red"></div>
+                <div class="meta">
+                  <strong>Skyline Labs</strong>
+                  <div>Visual System</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="page-services" class="page-section" data-page="services">
+        <div class="services-bg"></div>
+        <div class="container">
+          <h1 class="services-title">Services</h1>
+          <p class="services-lead">
+            End-to-end branding — from <span>strategy</span> to
+            <span>motion</span> & <span>digital experiences</span>.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card" data-animate>
+              <h3>Brand Strategy</h3>
+              <p>
+                Research, stakeholder interviews and positioning workshops to
+                set your brand’s trajectory.
+              </p>
+            </div>
+            <div class="service-card" data-animate>
+              <h3>Visual Identity</h3>
+              <p>
+                Wordmarks, color systems, typography & guidelines that become
+                your brand’s visual DNA.
+              </p>
+            </div>
+            <div class="service-card" data-animate>
+              <h3>Motion & Launch</h3>
+              <p>
+                Hero films, product motion & social assets to bring your brand
+                to life.
+              </p>
+            </div>
+            <div class="service-card" data-animate>
+              <h3>Digital Integration</h3>
+              <p>
+                Web components, immersive Three.js experiences & prototypes that
+                perform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section
+        id="page-about"
+        class="page-section"
+        data-page="about"
+        aria-labelledby="about-title"
+      >
+        <div class="about-hero">
+          <h1 id="about-title">
+            About <span class="gradient-text">Quantum</span>
+          </h1>
+          <p class="lead">
+            We are a creative studio blending design, code, and cinematic
+            storytelling to craft premium brands.
+          </p>
+        </div>
+
+        <div class="about-main">
+          <div class="about-text">
+            <p>
+              At Quantum, every pixel has purpose. Every frame has intention. We
+              combine bold thinking with meticulous execution to create brands
+              that are not just seen — but experienced.
+            </p>
+            <p>
+              From immersive 3D experiences to motion-led storytelling, we help
+              future-focused companies stand out in a crowded world.
+            </p>
+          </div>
+          <div class="about-media">
+            <div class="slider">
+              <img src="assets/axiom-motors.jpg" alt="Studio Work" />
+              <img src="assets/big-city.jpg" alt="Creative Process" />
+              <img src="assets/lumin fashion.jpg" alt="Brand Launch" />
+              <img src="assets/axiom-motors.jpg" alt="Studio Work" />
+              <img src="assets/big-city.jpg" alt="Creative Process" />
+              <img src="assets/lumin fashion.jpg" alt="Brand Launch" />
+            </div>
+          </div>
+        </div>
+
+        <div class="about-values">
+          <h2>Our Values</h2>
+          <div class="value-grid">
+            <div class="value-card">Boldness without noise</div>
+            <div class="value-card">Craft & rigour</div>
+            <div class="value-card">Future-forward thinking</div>
+          </div>
+        </div>
+
+        <div class="about-team">
+          <h2>Team</h2>
+          <div class="team-grid">
+            <div class="team-member">
+              <img src="assets/user.jpg" alt="Team Member" />
+              <h3>Alex</h3>
+              <p>Creative Director</p>
+            </div>
+            <div class="team-member">
+              <img src="assets/user.jpg" alt="Team Member" />
+              <h3>Jamie</h3>
+              <p>Lead Developer</p>
+            </div>
+            <div class="team-member">
+              <img src="assets/user.jpg" alt="Team Member" />
+              <h3>Taylor</h3>
+              <p>Brand Strategist</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section id="page-process" class="page-section" data-page="process">
+        <div class="process-bg"></div>
+        <div class="container">
+          <h1 class="process-title">Our Process</h1>
+          <p class="process-subtitle">
+            A transparent, research-led workflow focused on outcomes.
+          </p>
+
+          <div class="process-timeline">
+            <div class="process-step">
+              <span class="step-number">01</span>
+              <h3>Discovery</h3>
+              <p>We uncover goals, audience insights, and opportunities.</p>
+            </div>
+            <div class="process-step">
+              <span class="step-number">02</span>
+              <h3>Strategy</h3>
+              <p>We map out an actionable, data-driven brand plan.</p>
+            </div>
+            <div class="process-step">
+              <span class="step-number">03</span>
+              <h3>Design</h3>
+              <p>We create striking, memorable visual identities.</p>
+            </div>
+            <div class="process-step">
+              <span class="step-number">04</span>
+              <h3>Prototype</h3>
+              <p>We build interactive previews to validate concepts.</p>
+            </div>
+            <div class="process-step">
+              <span class="step-number">05</span>
+              <h3>Deliver</h3>
+              <p>We finalize, refine, and launch with impact.</p>
+            </div>
+            <div class="process-step">
+              <span class="step-number">06</span>
+              <h3>Support</h3>
+              <p>We provide ongoing optimization and maintenance.</p>
+            </div>
+            <div class="process-step">
+              <span class="step-number">07</span>
+              <h3>Growth</h3>
+              <p>We scale strategies for long-term success.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section
+        id="page-blog"
+        class="page-section"
+        data-page="blog"
+        aria-labelledby="blog-title"
+      >
+        <div class="container">
+          <h1 id="blog-title">Insights</h1>
+          <p class="lead">
+            Thought pieces and case studies about brand, motion and strategy.
+          </p>
+
+          <div class="blog-grid">
+            <article class="blog-card">
+              <img src="assets/lumin fashion.jpg" alt="Luxury design article" />
+              <div class="blog-content">
+                <h3>Designing for Luxury: Light, Shadow & Texture</h3>
+                <p>
+                  Exploring how subtle gradients, highlights, and deep textures
+                  create an aura of exclusivity...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets\lumin fashion.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'>
+<p><em>Exploring how subtle gradients, highlights, and deep textures create an aura of exclusivity...</em></p>
+<p>In the world of luxury design, every detail matters — often more than the average viewer realizes. Light, shadow, and texture are not just visual elements; they are the silent storytellers that communicate sophistication, craftsmanship, and value.</p>
+<h3>1. Light as the Language of Refinement</h3>
+<p>Luxury design relies on controlled, deliberate lighting. Soft gradients mimic the gentle transition of natural light, creating depth and dimension. Highlights are not overbearing but strategically placed to draw the eye to premium details — a metallic accent, a polished edge, or a fine material&#39;s natural sheen.</p>
+<h3>2. Shadows that Whisper, Not Shout</h3>
+<p>Deep, carefully feathered shadows convey stability and gravitas. In luxury branding, shadows are never harsh; instead, they soften edges and suggest weight, permanence, and high value. A well-placed shadow can make an object feel anchored and timeless.</p>
+<h3>3. Textures that Invite Touch</h3>
+<p>From velvety matte finishes to finely grained leather, textures elevate the perception of quality. Digital textures — like subtle noise overlays or embossed effects — can mimic the tactile richness of physical materials, making the audience feel the brand even through a screen.</p>
+<h3>4. The Harmony of the Three</h3>
+<p>The real magic happens when light, shadow, and texture work together. A slightly textured background illuminated with a soft gradient and grounded by deep shadows creates a sense of exclusivity without appearing loud or overdesigned. It’s the balance between subtlety and richness that defines true luxury aesthetics.</p>
+<p>In essence, designing for luxury is about restraint — the art of suggesting rather than showing, of creating desire through atmosphere rather than excess. Light, shadow, and texture, when mastered, transform a simple visual into an experience that feels timeless and premium.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img src="assets/axiom-motors.jpg" alt="Motion design article" />
+              <div class="blog-content">
+                <h3>Motion as Identity</h3>
+                <p>
+                  How movement becomes a brand’s signature, adding life and
+                  rhythm to visual identity...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets/axiom-motors.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'><p><em>How movement becomes a brand’s signature, adding life and rhythm to visual identity...</em></p>
+<p>In modern branding, motion is no longer just decoration — it’s a defining element of identity. The way visuals move, transition, and respond can speak as loudly as color palettes or typography, shaping how audiences remember and connect with a brand.</p>
+<h3>1. Beyond Static Logos</h3>
+<p>A logo that animates with purpose can communicate personality instantly. A graceful fade-in suggests elegance, while a bold, snappy reveal conveys energy and confidence. These motion cues become a brand’s visual “accent,” making it recognizable even without the static form.</p>
+<h3>2. Rhythm and Emotion</h3>
+<p>Every movement carries a mood. Slow, smooth transitions evoke calm and trust, while dynamic bursts of motion create excitement and urgency. By defining a consistent motion rhythm, brands ensure that their animations feel like part of one unified voice rather than scattered effects.</p>
+<h3>3. Storytelling Through Motion</h3>
+<p>Movement can guide the viewer’s eye, introduce elements in a narrative sequence, or highlight key details. Interactive animations, micro-interactions, and scroll-triggered effects invite participation, turning brand touchpoints into memorable experiences.</p>
+<h3>4. Consistency Across Platforms</h3>
+<p>Motion as identity works best when it’s applied consistently — from web experiences and social media posts to digital ads and in-app animations. This repetition builds familiarity, making the brand instantly recognizable even in fleeting moments.</p>
+<p>In essence, motion transforms visual identity from a static mark into a living system. It adds character, builds emotional resonance, and creates a rhythm that audiences can recognize, remember, and connect with — long after the screen fades to black.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img
+                src="assets/skyline.jpg"
+                alt="Three.js brand experience article"
+              />
+              <div class="blog-content">
+                <h3>Three.js for Brand Experience</h3>
+                <p>
+                  Leveraging real-time 3D to immerse audiences in interactive
+                  brand narratives...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets/skyline.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'><p><em>Leveraging real-time 3D to immerse audiences in interactive brand narratives...</em></p>
+<p>In an era where digital presence defines brand perception, static visuals are no longer enough to capture attention. Three.js — a powerful JavaScript library for 3D rendering — allows brands to create immersive, interactive experiences that bring their identity to life in ways traditional media cannot.</p>
+<h3>1. Storytelling in Motion</h3>
+<p>With Three.js, a brand can transform its story into a living, breathing environment. Instead of reading about a product, audiences can explore it in real time — rotating, zooming, and interacting with elements that respond fluidly to their actions. This shift from passive viewing to active engagement creates a deeper emotional connection.</p>
+<h3>2. A Canvas Without Limits</h3>
+<p>From abstract art-inspired landing pages to realistic virtual showrooms, Three.js empowers designers to craft worlds that reflect brand personality. Animations, dynamic lighting, and particle effects can convey mood and style, whether that’s bold innovation, refined elegance, or playful creativity.</p>
+<h3>3. Bridging Physical and Digital</h3>
+<p>Brands can use Three.js to simulate real-world materials, physics, and spaces, offering customers a tactile sense of the product before purchase. Combined with AR/VR integrations, these experiences blur the line between digital marketing and hands-on interaction, creating trust and excitement.</p>
+<h3>4. Performance Meets Aesthetics</h3>
+<p>Three.js is optimized for web performance, ensuring 3D experiences load quickly and run smoothly across devices. This balance of beauty and efficiency is crucial for maintaining user interest and preventing drop-offs in engagement.</p>
+<p>By integrating Three.js into brand strategy, companies move beyond telling their story — they let audiences step inside it. The result is not just a website, but an environment where every interaction reinforces brand values and leaves a lasting impression.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img
+                src="assets/skyline.jpg"
+                alt="Three.js brand experience article"
+              />
+              <div class="blog-content">
+                <h3>Three.js for Brand Experience</h3>
+                <p>
+                  Leveraging real-time 3D to immerse audiences in interactive
+                  brand narratives...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets/skyline.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'><p><em>Leveraging real-time 3D to immerse audiences in interactive brand narratives...</em></p>
+<p>In an era where digital presence defines brand perception, static visuals are no longer enough to capture attention. Three.js — a powerful JavaScript library for 3D rendering — allows brands to create immersive, interactive experiences that bring their identity to life in ways traditional media cannot.</p>
+<h3>1. Storytelling in Motion</h3>
+<p>With Three.js, a brand can transform its story into a living, breathing environment. Instead of reading about a product, audiences can explore it in real time — rotating, zooming, and interacting with elements that respond fluidly to their actions. This shift from passive viewing to active engagement creates a deeper emotional connection.</p>
+<h3>2. A Canvas Without Limits</h3>
+<p>From abstract art-inspired landing pages to realistic virtual showrooms, Three.js empowers designers to craft worlds that reflect brand personality. Animations, dynamic lighting, and particle effects can convey mood and style, whether that’s bold innovation, refined elegance, or playful creativity.</p>
+<h3>3. Bridging Physical and Digital</h3>
+<p>Brands can use Three.js to simulate real-world materials, physics, and spaces, offering customers a tactile sense of the product before purchase. Combined with AR/VR integrations, these experiences blur the line between digital marketing and hands-on interaction, creating trust and excitement.</p>
+<h3>4. Performance Meets Aesthetics</h3>
+<p>Three.js is optimized for web performance, ensuring 3D experiences load quickly and run smoothly across devices. This balance of beauty and efficiency is crucial for maintaining user interest and preventing drop-offs in engagement.</p>
+<p>By integrating Three.js into brand strategy, companies move beyond telling their story — they let audiences step inside it. The result is not just a website, but an environment where every interaction reinforces brand values and leaves a lasting impression.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img src="assets/lumin fashion.jpg" alt="Luxury design article" />
+              <div class="blog-content">
+                <h3>Designing for Luxury: Light, Shadow & Texture</h3>
+                <p>
+                  Exploring how subtle gradients, highlights, and deep textures
+                  create an aura of exclusivity...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets\lumin fashion.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'>
+<p><em>Exploring how subtle gradients, highlights, and deep textures create an aura of exclusivity...</em></p>
+<p>In the world of luxury design, every detail matters — often more than the average viewer realizes. Light, shadow, and texture are not just visual elements; they are the silent storytellers that communicate sophistication, craftsmanship, and value.</p>
+<h3>1. Light as the Language of Refinement</h3>
+<p>Luxury design relies on controlled, deliberate lighting. Soft gradients mimic the gentle transition of natural light, creating depth and dimension. Highlights are not overbearing but strategically placed to draw the eye to premium details — a metallic accent, a polished edge, or a fine material&#39;s natural sheen.</p>
+<h3>2. Shadows that Whisper, Not Shout</h3>
+<p>Deep, carefully feathered shadows convey stability and gravitas. In luxury branding, shadows are never harsh; instead, they soften edges and suggest weight, permanence, and high value. A well-placed shadow can make an object feel anchored and timeless.</p>
+<h3>3. Textures that Invite Touch</h3>
+<p>From velvety matte finishes to finely grained leather, textures elevate the perception of quality. Digital textures — like subtle noise overlays or embossed effects — can mimic the tactile richness of physical materials, making the audience feel the brand even through a screen.</p>
+<h3>4. The Harmony of the Three</h3>
+<p>The real magic happens when light, shadow, and texture work together. A slightly textured background illuminated with a soft gradient and grounded by deep shadows creates a sense of exclusivity without appearing loud or overdesigned. It’s the balance between subtlety and richness that defines true luxury aesthetics.</p>
+<p>In essence, designing for luxury is about restraint — the art of suggesting rather than showing, of creating desire through atmosphere rather than excess. Light, shadow, and texture, when mastered, transform a simple visual into an experience that feels timeless and premium.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img src="assets/axiom-motors.jpg" alt="Motion design article" />
+              <div class="blog-content">
+                <h3>Motion as Identity</h3>
+                <p>
+                  How movement becomes a brand’s signature, adding life and
+                  rhythm to visual identity...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets/axiom-motors.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'><p><em>How movement becomes a brand’s signature, adding life and rhythm to visual identity...</em></p>
+<p>In modern branding, motion is no longer just decoration — it’s a defining element of identity. The way visuals move, transition, and respond can speak as loudly as color palettes or typography, shaping how audiences remember and connect with a brand.</p>
+<h3>1. Beyond Static Logos</h3>
+<p>A logo that animates with purpose can communicate personality instantly. A graceful fade-in suggests elegance, while a bold, snappy reveal conveys energy and confidence. These motion cues become a brand’s visual “accent,” making it recognizable even without the static form.</p>
+<h3>2. Rhythm and Emotion</h3>
+<p>Every movement carries a mood. Slow, smooth transitions evoke calm and trust, while dynamic bursts of motion create excitement and urgency. By defining a consistent motion rhythm, brands ensure that their animations feel like part of one unified voice rather than scattered effects.</p>
+<h3>3. Storytelling Through Motion</h3>
+<p>Movement can guide the viewer’s eye, introduce elements in a narrative sequence, or highlight key details. Interactive animations, micro-interactions, and scroll-triggered effects invite participation, turning brand touchpoints into memorable experiences.</p>
+<h3>4. Consistency Across Platforms</h3>
+<p>Motion as identity works best when it’s applied consistently — from web experiences and social media posts to digital ads and in-app animations. This repetition builds familiarity, making the brand instantly recognizable even in fleeting moments.</p>
+<p>In essence, motion transforms visual identity from a static mark into a living system. It adds character, builds emotional resonance, and creates a rhythm that audiences can recognize, remember, and connect with — long after the screen fades to black.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img src="assets/lumin fashion.jpg" alt="Luxury design article" />
+              <div class="blog-content">
+                <h3>Designing for Luxury: Light, Shadow & Texture</h3>
+                <p>
+                  Exploring how subtle gradients, highlights, and deep textures
+                  create an aura of exclusivity...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets\lumin fashion.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'>
+<p><em>Exploring how subtle gradients, highlights, and deep textures create an aura of exclusivity...</em></p>
+<p>In the world of luxury design, every detail matters — often more than the average viewer realizes. Light, shadow, and texture are not just visual elements; they are the silent storytellers that communicate sophistication, craftsmanship, and value.</p>
+<h3>1. Light as the Language of Refinement</h3>
+<p>Luxury design relies on controlled, deliberate lighting. Soft gradients mimic the gentle transition of natural light, creating depth and dimension. Highlights are not overbearing but strategically placed to draw the eye to premium details — a metallic accent, a polished edge, or a fine material&#39;s natural sheen.</p>
+<h3>2. Shadows that Whisper, Not Shout</h3>
+<p>Deep, carefully feathered shadows convey stability and gravitas. In luxury branding, shadows are never harsh; instead, they soften edges and suggest weight, permanence, and high value. A well-placed shadow can make an object feel anchored and timeless.</p>
+<h3>3. Textures that Invite Touch</h3>
+<p>From velvety matte finishes to finely grained leather, textures elevate the perception of quality. Digital textures — like subtle noise overlays or embossed effects — can mimic the tactile richness of physical materials, making the audience feel the brand even through a screen.</p>
+<h3>4. The Harmony of the Three</h3>
+<p>The real magic happens when light, shadow, and texture work together. A slightly textured background illuminated with a soft gradient and grounded by deep shadows creates a sense of exclusivity without appearing loud or overdesigned. It’s the balance between subtlety and richness that defines true luxury aesthetics.</p>
+<p>In essence, designing for luxury is about restraint — the art of suggesting rather than showing, of creating desire through atmosphere rather than excess. Light, shadow, and texture, when mastered, transform a simple visual into an experience that feels timeless and premium.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img src="assets/axiom-motors.jpg" alt="Motion design article" />
+              <div class="blog-content">
+                <h3>Motion as Identity</h3>
+                <p>
+                  How movement becomes a brand’s signature, adding life and
+                  rhythm to visual identity...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets/axiom-motors.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'><p><em>How movement becomes a brand’s signature, adding life and rhythm to visual identity...</em></p>
+<p>In modern branding, motion is no longer just decoration — it’s a defining element of identity. The way visuals move, transition, and respond can speak as loudly as color palettes or typography, shaping how audiences remember and connect with a brand.</p>
+<h3>1. Beyond Static Logos</h3>
+<p>A logo that animates with purpose can communicate personality instantly. A graceful fade-in suggests elegance, while a bold, snappy reveal conveys energy and confidence. These motion cues become a brand’s visual “accent,” making it recognizable even without the static form.</p>
+<h3>2. Rhythm and Emotion</h3>
+<p>Every movement carries a mood. Slow, smooth transitions evoke calm and trust, while dynamic bursts of motion create excitement and urgency. By defining a consistent motion rhythm, brands ensure that their animations feel like part of one unified voice rather than scattered effects.</p>
+<h3>3. Storytelling Through Motion</h3>
+<p>Movement can guide the viewer’s eye, introduce elements in a narrative sequence, or highlight key details. Interactive animations, micro-interactions, and scroll-triggered effects invite participation, turning brand touchpoints into memorable experiences.</p>
+<h3>4. Consistency Across Platforms</h3>
+<p>Motion as identity works best when it’s applied consistently — from web experiences and social media posts to digital ads and in-app animations. This repetition builds familiarity, making the brand instantly recognizable even in fleeting moments.</p>
+<p>In essence, motion transforms visual identity from a static mark into a living system. It adds character, builds emotional resonance, and creates a rhythm that audiences can recognize, remember, and connect with — long after the screen fades to black.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <img
+                src="assets/skyline.jpg"
+                alt="Three.js brand experience article"
+              />
+              <div class="blog-content">
+                <h3>Three.js for Brand Experience</h3>
+                <p>
+                  Leveraging real-time 3D to immerse audiences in interactive
+                  brand narratives...
+                </p>
+                <button
+                  class="read-more"
+                  data-full="<img src='assets/skyline.jpg' alt='Luxury design concept' style='width:100%;max-width:700px;display:block;margin:16px auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.25)'><p><em>Leveraging real-time 3D to immerse audiences in interactive brand narratives...</em></p>
+<p>In an era where digital presence defines brand perception, static visuals are no longer enough to capture attention. Three.js — a powerful JavaScript library for 3D rendering — allows brands to create immersive, interactive experiences that bring their identity to life in ways traditional media cannot.</p>
+<h3>1. Storytelling in Motion</h3>
+<p>With Three.js, a brand can transform its story into a living, breathing environment. Instead of reading about a product, audiences can explore it in real time — rotating, zooming, and interacting with elements that respond fluidly to their actions. This shift from passive viewing to active engagement creates a deeper emotional connection.</p>
+<h3>2. A Canvas Without Limits</h3>
+<p>From abstract art-inspired landing pages to realistic virtual showrooms, Three.js empowers designers to craft worlds that reflect brand personality. Animations, dynamic lighting, and particle effects can convey mood and style, whether that’s bold innovation, refined elegance, or playful creativity.</p>
+<h3>3. Bridging Physical and Digital</h3>
+<p>Brands can use Three.js to simulate real-world materials, physics, and spaces, offering customers a tactile sense of the product before purchase. Combined with AR/VR integrations, these experiences blur the line between digital marketing and hands-on interaction, creating trust and excitement.</p>
+<h3>4. Performance Meets Aesthetics</h3>
+<p>Three.js is optimized for web performance, ensuring 3D experiences load quickly and run smoothly across devices. This balance of beauty and efficiency is crucial for maintaining user interest and preventing drop-offs in engagement.</p>
+<p>By integrating Three.js into brand strategy, companies move beyond telling their story — they let audiences step inside it. The result is not just a website, but an environment where every interaction reinforces brand values and leaves a lasting impression.</p>"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Expanded View Modal -->
+        <div class="blog-modal" id="blogModal">
+          <div class="blog-modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalContent"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section
+        id="page-contact"
+        class="page-section"
+        data-page="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="container">
+          <h1 id="contact-title">Contact</h1>
+          <p class="lead">Start a project, request a deck or say hi.</p>
+          <form
+            class="card"
+            id="contact-form"
+            action="https://formspree.io/f/mayvlpqr"
+            method="POST"
+          >
+            <label for="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              required
+              style="
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                border-radius: 8px;
+                background: #060606;
+                border: 1px solid rgba(255, 255, 255, 0.04);
+                color: #fff;
+              "
+            />
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              style="
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                border-radius: 8px;
+                background: #060606;
+                border: 1px solid rgba(255, 255, 255, 0.04);
+                color: #fff;
+              "
+            />
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              required
+              style="
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                border-radius: 8px;
+                background: #060606;
+                border: 1px solid rgba(255, 255, 255, 0.04);
+                color: #fff;
+              "
+            ></textarea>
+            <div style="margin-top: 12px">
+              <button class="btn" type="submit">Send inquiry</button>
+            </div>
+          </form>
+          <div style="margin-top: 18px" class="card">
+            <h4>Offices</h4>
+            <p>Global — remote studio. Email: hello@quantum.example</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+          "
+        >
+          <div>&copy; Quantum — Brand Identity</div>
+          <div style="opacity: 0.7">Made for demo — live preview</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts: using CDN for preview -->
+    <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script>
+      // Basic router
+      const pages = Array.from(document.querySelectorAll("[data-page]"));
+      function showPage(name) {
+        pages.forEach((p) =>
+          p.classList.toggle("active", p.dataset.page === name)
+        );
+        // scroll to top of main for new "page"
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+      function route() {
+        const hash = location.hash.replace("#/", "") || "home";
+        showPage(hash);
+      }
+      window.addEventListener("hashchange", route);
+      document.querySelectorAll("[data-link]").forEach((a) =>
+        a.addEventListener("click", (e) => {
+          // allow normal if external; for internal, set hash
+          const href = a.getAttribute("href");
+          if (href && href.startsWith("#/")) {
+            e.preventDefault();
+            location.hash = href.replace("#", "");
+          }
+        })
+      );
+      route();
+
+      // Portfolio filters
+      document.querySelectorAll(".filter").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const f = btn.dataset.filter;
+          const nodes = document.querySelectorAll("#portfolio-grid .project");
+          nodes.forEach((n) => {
+            n.style.display =
+              f === "all" || n.dataset.type === f ? "block" : "none";
+          });
+        });
+      });
+
+      // GSAP reveals for sections
+      gsap.registerPlugin(ScrollTrigger);
+      document.querySelectorAll(".card, .project, .hero-copy").forEach((el) => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 18,
+          duration: 0.8,
+          scrollTrigger: { trigger: el, start: "top 85%" },
+        });
+      });
+
+      // Three.js hero (lightweight)
+      (function () {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+          return;
+        const canvas = document.getElementById("heroCanvas");
+        const renderer = new THREE.WebGLRenderer({
+          canvas,
+          antialias: true,
+          alpha: true,
+        });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+          50,
+          window.innerWidth / 620,
+          0.1,
+          1000
+        );
+        camera.position.z = 3;
+
+        const geo = new THREE.IcosahedronGeometry(1.0, 3);
+        const mat = new THREE.MeshStandardMaterial({
+          color: 0xe50914,
+          metalness: 0.6,
+          roughness: 0.3,
+          emissive: 0x220000,
+          flatShading: true,
+        });
+        const mesh = new THREE.Mesh(geo, mat);
+        scene.add(mesh);
+        const light = new THREE.DirectionalLight(0xffffff, 1.0);
+        light.position.set(5, 5, 5);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x111111));
+
+        function resize() {
+          const width = canvas.clientWidth || window.innerWidth;
+          const height = 620;
+          renderer.setSize(width, height, false);
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+        }
+        window.addEventListener("resize", resize, { passive: true });
+        resize();
+
+        // subtle noise using vertex displacement (cheap) - rotate and pulse
+        let t = 0;
+        function animate() {
+          t += 0.01;
+          mesh.rotation.y += 0.004;
+          mesh.rotation.x += 0.002;
+          mesh.material.emissiveIntensity = 0.6 + Math.sin(t * 1.2) * 0.15;
+          renderer.render(scene, camera);
+          requestAnimationFrame(animate);
+        }
+        animate();
+      })();
+
+      const modal = document.getElementById("blogModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalContent = document.getElementById("modalContent");
+      const closeBtn = document.querySelector(".close-btn");
+
+      document.querySelectorAll(".read-more").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const card = btn.closest(".blog-card");
+          const title = card.querySelector("h3").textContent;
+          const fullContent = btn.dataset.full;
+
+          modalTitle.textContent = title;
+          modalContent.innerHTML = fullContent;
+          modal.style.display = "flex";
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.utils.toArray(".process-step").forEach((step, i) => {
+        gsap.from(step, {
+          opacity: 0,
+          y: 60,
+          duration: 0.8,
+          delay: i * 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: step,
+            start: "top 85%",
+          },
+        });
+      });
+
+      const slider = document.querySelector(".slider");
+      let scrollStep = 2; // speed in px/frame
+      let cloneCount = slider.children.length;
+
+      // Clone slides for infinite loop
+      for (let i = 0; i < cloneCount; i++) {
+        let clone = slider.children[i].cloneNode(true);
+        slider.appendChild(clone);
+      }
+
+      function autoScroll() {
+        slider.scrollLeft += scrollStep;
+        if (slider.scrollLeft >= slider.scrollWidth / 2) {
+          slider.scrollLeft = 0; // reset to start
+        }
+        requestAnimationFrame(autoScroll);
+      }
+
+      autoScroll();
+
+      const track = document.querySelector(".slider-track");
+      const slides = document.querySelectorAll(".project");
+      const prevBtn = document.querySelector(".slider-btn.prev");
+      const nextBtn = document.querySelector(".slider-btn.next");
+
+      let index = 0;
+
+      function updateSlider() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateSlider();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        index = (index + 1) % slides.length;
+        updateSlider();
+      });
+
+      // Simple form success UX
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", (e) => {
+          // let actual submission occur; show a small toast
+          setTimeout(() => alert("Thanks! Your inquiry was sent."), 400);
+        });
+    </script>
+  </body>
+</html>
